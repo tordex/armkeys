@@ -54,7 +54,7 @@ void int_to_field( BIGINT *a, FIELD2N *b)
 	
 	SUMLOOP(i)
 	{
-		j = (i + MAXLONG) << 1;
+		j = (i + MAX_LONG) << 1;
 		b->e[i] = a->hw[j+1] | (a->hw[j] << HALFSIZE);
 	}
 }

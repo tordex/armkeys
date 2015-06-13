@@ -21,15 +21,15 @@
 
 #define	NUMWORD		(NUMBITS / WORDSIZE)
 #define UPRSHIFT	(NUMBITS % WORDSIZE)
-#define MAXLONG		(NUMWORD + 1)
+#define MAX_LONG		(NUMWORD + 1)
 
-#define MAXBITS		(MAXLONG * WORDSIZE)
+#define MAXBITS		(MAX_LONG * WORDSIZE)
 #define MAXSHIFT	(WORDSIZE - 1)
 #define MSB			(1L << MAXSHIFT)
 
 #define UPRBIT		(1L << (UPRSHIFT - 1))
 #define UPRMASK		(~(-1L << UPRSHIFT))
-#define SUMLOOP(i)	for(i=0; i<MAXLONG; i++)
+#define SUMLOOP(i)	for(i=0; i<MAX_LONG; i++)
 
 typedef	short int INDEX;
 
@@ -37,7 +37,7 @@ typedef unsigned long ELEMENT;
 
 typedef struct 
 {
-	ELEMENT 	e[MAXLONG];
+	ELEMENT 	e[MAX_LONG];
 }  FIELD2N;
 
 typedef struct 
@@ -84,14 +84,14 @@ typedef struct
 #define LOMASK		(~HIMASK)
 #define CARRY		(1L<<HALFSIZE)
 #define MSB_HW		(CARRY>>1)
-#define	INTMAX		(4*MAXLONG-1)
-#define MAXSTRING	(MAXLONG*WORDSIZE/3)
+#define	INTMAX		(4*MAX_LONG-1)
+#define MAXSTRING	(MAX_LONG*WORDSIZE/3)
 
 #define	INTLOOP(i)	for(i=INTMAX;i>=0;i--)
 
 typedef struct 
 {
-	ELEMENT		hw[4*MAXLONG];
+	ELEMENT		hw[4*MAX_LONG];
 }  BIGINT;
 
 
